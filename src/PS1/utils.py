@@ -1,6 +1,7 @@
 import os
 
-def getOpenFilename(default = None):
+
+def getOpenFilename(default=None):
     """
     Prompts the user to pick a file name.  If the user doesn't enter a filename,
     returns the default.
@@ -17,7 +18,8 @@ def getOpenFilename(default = None):
 
     return filename
 
-def getSaveFilename(default = None):
+
+def getSaveFilename(default=None):
     """
     Prompts the user to pick a file name.  If the user doesn't enter a filename,
     returns the default.  If the file already exists, checks to make sure that
@@ -36,7 +38,7 @@ def getSaveFilename(default = None):
     if os.path.exists(filename):
         print("The file %s already exists." % filename)
         prompt = ("Overwrite (o), enter another name (f), or cancel (c)? ")
-        
+
         check = input(prompt)
         while (check != "o" and check != "f" and check != "c"):
             check = input(prompt)

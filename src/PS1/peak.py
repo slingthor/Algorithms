@@ -41,7 +41,7 @@ class PeakProblem(object):
             return 0
         return self.array[self.startRow + r][self.startCol + c]
 
-    def getBetterNeighbor(self, location, trace = None):
+    def getBetterNeighbor(self, location, trace=None):
         """
         If (r, c) has a better neighbor, return the neighbor.  Otherwise,
         return the location (r, c).
@@ -64,20 +64,20 @@ class PeakProblem(object):
         if not trace is None: trace.getBetterNeighbor(location, best)
 
         return best
-    
-    def getMaximum(self, locations, trace = None):
+
+    def getMaximum(self, locations, trace=None):
         """
         Finds the location in the current problem with the greatest value.
 
         RUNTIME: O(len(locations))
         """
-   
+
         (bestLoc, bestVal) = (None, 0)
-    
+
         for loc in locations:
             if bestLoc is None or self.get(loc) > bestVal:
                 (bestLoc, bestVal) = (loc, self.get(loc))
-    
+
         if not trace is None: trace.getMaximum(locations, bestLoc)
 
         return bestLoc
@@ -134,6 +134,7 @@ class PeakProblem(object):
         newCol = col + problem.startCol - self.startCol
         return (newRow, newCol)
 
+
 ################################################################################
 ################################ Helper Methods ################################
 ################################################################################
@@ -151,12 +152,13 @@ def getDimensions(array):
 
     rows = len(array)
     cols = 0
-    
+
     for row in array:
         if len(row) > cols:
             cols = len(row)
-    
+
     return (rows, cols)
+
 
 def createProblem(array):
     """
